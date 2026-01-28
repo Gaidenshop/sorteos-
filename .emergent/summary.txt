@@ -1,0 +1,156 @@
+<analysis>**original_problem_statement:**
+The user's goal is to build a comprehensive digital raffle platform. The initial focus was on two complex features: an automated, real-time raffle lifecycle driven by WebSockets, and a complete seller/referral system.
+
+Over time, the user's requests shifted to refining and fixing the core live raffle experience. Recent critical requests included:
+1.  **Fixing the Live Raffle:** Ensuring each prize draw lasts exactly 2 minutes, the countdown is synchronized in real-time across all clients via WebSockets, and the raffle correctly transitions through states.
+2.  **Fixing Google Authentication:** Resolving errors that prevented users from registering or logging in with their Google accounts.
+3.  **UI/UX Enhancements:** Making the entire platform responsive, increasing logo sizes, fixing UI layout bugs in the admin dashboard, and simplifying the live animation display.
+4.  **Admin Functionality:** Adding features for admins to bypass rules (like adjusting minimum ticket purchases for a published raffle) and to edit visual media (images/videos) on raffles that are already in the  state.
+5.  **New Core Features:** Implementing random ticket assignment for buyers, allowing multiple prizes per stage in multi-stage raffles, and removing manual admin actions to enforce the system's automated nature.
+
+**User's preferred language**: Spanish (español)
+
+**what currently exists?**
+The application is a full-stack platform using React, FastAPI, and MongoDB. It has a complete authentication system for admins, users, and sellers. The core logic for multi-stage raffles is in place, using background services (, ) and WebSockets () for real-time state management.
+
+In this session, numerous critical bugs were fixed, including the logic for raffle state transitions and Google authentication. New features were added, such as allowing admins to adjust ticket minimums and edit media on published raffles. The UI has been made significantly more responsive, and many user-requested layout adjustments have been implemented.
+
+**Last working item**:
+- **Last item agent was working:** The user reported that while inline editing for prize images/videos was working, there was no input to edit or add the main promotional images for a raffle, especially if none existed initially. The agent understood the issue and was about to add this functionality.
+- **Status:** IN PROGRESS
+- **Agent Testing Done:** N
+- **Which testing method agent to use?** Frontend testing agent. The agent must log in as an admin, navigate to a  raffle's expanded details, and verify that they can now see an input to add a new promotional image URL and save it successfully.
+- **User Testing Done:** Y (User provided a screenshot showing the missing input).
+
+**All Pending/In progress Issue list**:
+*   **Issue 1 (P0):** Add/Edit Promotional Images in Published Raffles.
+*   **Issue 2 (P1):** Real-time WebSocket countdown for live raffles is still unreliable and not synchronized.
+*   **Issue 3 (P2):** User dashboard Mis Premios Ganados tab is functionally complete but has never been tested or verified by the user.
+
+**Issues Detail:**
+- **Issue 1: Add/Edit Promotional Images in Published Raffles.**
+    - **Attempted fixes:** The agent successfully implemented inline editing for *prize* images/videos but missed doing the same for the raffle's main promotional images.
+    - **Next debug checklist:**
+        1.  In , find the collapsible details section for  raffles.
+        2.  Modify the logic to always show an input field for adding/editing promotional image URLs, similar to how prize images are handled.
+        3.  Ensure the  handler uses the existing backend endpoint .
+    - **Why fix this issue and what will be achieved with the fix?** To complete the user's request to allow editing of all visual media for  raffles.
+    - **Status:** IN PROGRESS
+    - **Is recurring issue?** N
+    - **Should Test frontend/backend/both after fix?** Frontend.
+    - **Blocked on other issue:** None.
+
+- **Issue 2: Real-time WebSocket countdown is unreliable.**
+    - **Attempted fixes:** The agent correctly identified that  was not starting the  and fixed it in . Despite this, browser logs show WebSocket is closed before the connection is established, indicating a persistent connection failure.
+    - **Next debug checklist:**
+        1.  **Verify Proxy Configuration:** The problem is likely a reverse proxy (Nginx) not configured for WebSocket connections. Investigate proxy settings for WebSocket headers (, ).
+        2.  **Check Backend CORS:** Double-check CORS origins in  and the  initialization.
+        3.  **Isolate with Minimal Test:** Create a simple HTML page with a vanilla  script to connect directly to the backend WebSocket, bypassing the React app to confirm if the issue is app-specific or server-wide.
+    - **Why fix this issue and what will be achieved with the fix?** This is a core feature for the live raffle experience and a major source of user frustration. Fixing it is critical for platform credibility.
+    - **Status:** BLOCKED (Potentially on platform/proxy configuration).
+    - **Is recurring issue?** Y
+    - **Should Test frontend/backend/both after fix?** Both.
+    - **Blocked on other issue:** None.
+
+- **Issue 3: User dashboard Mis Premios Ganados tab is incomplete.**
+    - **Attempted fixes:** The backend endpoint () was created, and the frontend logic was added to . However, it was never fully tested.
+    - **Next debug checklist:**
+        1.  Create a test scenario where a user wins a prize.
+        2.  Log in as that user and navigate to the dashboard.
+        3.  Use the frontend testing agent to verify that the Premios Ganados tab correctly displays the prize details.
+    - **Why fix this issue and what will be achieved with the fix?** This completes a long-pending user requirement to provide users with a history of their winnings.
+    - **Status:** USER VERIFICATION PENDING
+    - **Is recurring issue?** N
+    - **Should Test frontend/backend/both after fix?** Both.
+    - **Blocked on other issue:** None.
+
+**In progress Task List**:
+- None that are distinct from the pending issues.
+
+**Upcoming and Future Tasks**
+*   **Task (P1):** Full End-to-End Test of the Raffle Lifecycle. After the WebSocket issue is fixed, a comprehensive test of the entire multi-stage raffle flow is mandatory to ensure all recent fixes work together seamlessly.
+
+**Completed work in this session**
+- **Resolved - Live Raffle Logic:** Fixed timezone comparison errors that prevented raffles from starting automatically. Corrected the live animation duration to 2 minutes per prize and ensured raffles transition to  afterward.
+- **Resolved - Google Login/Registration:** Created the missing backend callback endpoint and fixed a  enum mismatch, making Google Auth fully functional.
+- **Feature - Admin Raffle Management:**
+    - Implemented a feature for admins to adjust the minimum ticket purchase on  raffles.
+    - Implemented inline editing of prize images/videos for  raffles.
+    - Removed the manual Sortear (Draw) button to enforce automation.
+- **Feature - New User Requests:**
+    - Implemented random ticket assignment in the purchase form.
+    - Enabled multiple prizes per stage in multi-stage raffles.
+    - Adjusted the home page raffle cards to show a percentage progress bar instead of tickets left.
+- **UI/UX Fixes:**
+    - Made the Admin, User, and Seller dashboards fully responsive.
+    - Fixed UI bugs in the Admin Dashboard related to tab overflow and form width.
+    - Increased the WishWay logo size on the Home and Login pages.
+    - Simplified the live animation display per the user's latest request.
+
+**Earlier issues found/mentioned but not fixed**
+*   The core WebSocket connectivity issue, which prevents the real-time synchronized countdown, remains unresolved and is the most critical blocker.
+
+**Known issue recurrence from previous fork**
+*   **Issue:**  animation functionality.
+    *   **Recurrence count:** High.
+    - **Status:** RESOLVED (The initial bug was fixed, and the component was later simplified per a new user request).
+*   **Issue:** Winner's name not displayed correctly.
+    *   **Recurrence count:** Medium.
+    - **Status:** RESOLVED (Verified to be working correctly).
+
+**Code Architecture**
+server:socket_app
+
+**Key Technical Concepts**
+*   **Backend:** FastAPI, , Motor (async MongoDB), APScheduler.
+*   **Frontend:** React, , , , .
+*   **Architecture:** The system relies on WebSockets for real-time updates. A critical, unresolved issue with the WebSocket connection itself, likely at the proxy/server configuration level, is preventing key features from working as intended.
+
+**key DB schema**
+*   **sorteos**:  and  were identified as separate fields, causing a bug that was fixed. Logic for  and prize  was added for the new editing feature.
+*   **usuarios**: Logic for creating users via Google OAuth was fixed.
+
+**All files of reference**
+*   : Contains numerous new endpoints and fixes related to admin functions and authentication.
+*   : The hub for most new features and UI fixes in this session.
+*   : Contains refactored code to improve WebSocket connection reliability.
+*   : Contains the critical configuration change to enable the WebSocket server.
+
+**Critical Info for New Agent**
+*   **WEBSOCKET CONNECTION IS THE #1 BLOCKER:** The most significant and user-frustrating problem is the unreliable WebSocket connection. The previous agent correctly fixed the  startup command but the connection still fails, pointing to a problem outside the application code (likely Nginx proxy configuration). The next agent **MUST** prioritize debugging this. Do not fall back to local timers, as the user has explicitly rejected this.
+*   **User Frustration:** The user is justifiably frustrated with recurring issues, especially the live countdown. Be direct, acknowledge their concerns, and focus on permanently solving the core WebSocket problem.
+*   **Respect Existing Code:** The user has explicitly warned not to refactor or change logic that is already working. When adding features, reuse existing data structures and component patterns.
+
+**Last 10 User Messages and any pending user messages**
+1.  **User:** Admin dashboard UI is not responsive and has layout bugs. (Status: **COMPLETED**)
+2.  **User:** Google registration is failing for new users. (Status: **COMPLETED**)
+3.  **User:** As an admin, I need a way to bypass the minimum ticket purchase rule to unblock a sale. (Status: **COMPLETED**)
+4.  **User:** The new adjust minimum feature is throwing an error. (Status: **COMPLETED**)
+5.  **User:** After adjusting the minimum, the purchase form still shows the old value. (Status: **COMPLETED**)
+6.  **User (Major Request):** Add random ticket assignment, multiple prizes per stage, update home card UI, allow editing media on published raffles, and remove the manual draw button. (Status: **COMPLETED**)
+7.  **User:** The progress bar shows 5/10 instead of 50%, the stage info is gone, and I still can't edit images on published raffles. (Status: **COMPLETED**)
+8.  **User (Major Request):** Implement inline editing for image/video URLs on published raffles. (Status: **COMPLETED**)
+9.  **User:** The promotional image section is missing an input for editing. (Status: **PENDING - Current 
+wtmp begins Thu Dec 11 17:41:31 2025**)
+10. **User (Multiple Times):** The live countdown is not working and is not synchronized. (Status: **PENDING - Critical recurring issue**)
+
+**Project Health Check:**
+*   **Broken:** The core real-time functionality (live countdown) via WebSockets is fundamentally broken due to a persistent connection issue. This is the highest priority to fix.
+*   **Mocked:** None.
+
+**3rd Party Integrations**
+*   **Google OAuth** (via ) - Handles user login/registration. No user-provided keys are required.
+
+**Testing status**
+*   **Testing agent used after significant changes:** YES, to verify the Google Login button functionality.
+*   **Troubleshoot agent used after agent stuck in loop:** NO.
+*   **Test files created:** None.
+*   **Known regressions:** The WebSocket-driven countdown is a recurring failure that has never been fully and permanently resolved.
+
+**Credentials to test flow:**
+*   **Admin:**  / 
+*   **Vendedor:**  / 
+
+**What agent forgot to execute**
+*   The agent has consistently failed to permanently solve the WebSocket connection issue, which is the root cause of the broken live countdown. While multiple application-level fixes were attempted, the agent did not investigate the likely underlying cause in the server/proxy configuration.
+*   The agent initially forgot to implement editing for *promotional* images when adding the inline editing feature, requiring the user to point out the omission.</analysis>
