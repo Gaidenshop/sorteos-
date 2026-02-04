@@ -184,28 +184,46 @@ const HomeComplete = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
-      {/* SECCIÓN 1: HERO SECTION CON LOGO */}
-      <div 
-        className="relative h-[600px] flex flex-col items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `url(${HERO_IMAGE})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
+      {/* SECCIÓN 1: HERO (PORTADA) - Responsive con 3 imágenes diferentes */}
+      <div className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat">
+        {/* Imagen de fondo responsive */}
+        <picture className="absolute inset-0 w-full h-full">
+          <source 
+            media="(min-width: 1024px)" 
+            srcSet={HERO_IMAGE_DESKTOP} 
+          />
+          <source 
+            media="(min-width: 640px)" 
+            srcSet={HERO_IMAGE_TABLET} 
+          />
+          <img 
+            src={HERO_IMAGE_MOBILE}
+            alt="Gaiden Shop Background" 
+            className="w-full h-full object-cover"
+          />
+        </picture>
         
-        <div className="relative z-10 max-w-6xl mx-auto text-center px-4">
-          {/* Logo encima del título */}
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
+
+        {/* Elementos decorativos flotantes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+          <div className="absolute top-40 right-20 w-3 h-3 bg-cyan-400 rounded-full animate-ping animation-delay-1000"></div>
+          <div className="absolute bottom-40 left-20 w-2 h-2 bg-purple-400 rounded-full animate-ping animation-delay-2000"></div>
+          <div className="absolute bottom-20 right-10 w-3 h-3 bg-yellow-400 rounded-full animate-ping animation-delay-3000"></div>
+        </div>
+
+        {/* Contenido principal */}
+        <div className="relative z-10 text-center px-4 py-20">
           <img 
             src={LOGO_URL} 
-            alt="WishWay Logo" 
+            alt="Gaiden Shop Logo" 
             className="h-32 md:h-40 lg:h-48 mx-auto mb-8 drop-shadow-2xl object-contain"
           />
           
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-            WishWay Sorteos
+            Gaiden Shop Sorteos
           </h1>
           <p className="text-xl sm:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg font-medium">
             Participa en sorteos emocionantes y gana premios increíbles. Tu próximo sueño está a un boleto de distancia.
