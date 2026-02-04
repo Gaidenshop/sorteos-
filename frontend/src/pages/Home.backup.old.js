@@ -161,7 +161,7 @@ const Home = () => {
         
         <div className="relative z-10 max-w-6xl mx-auto text-center px-4">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-            WishWay Sorteos
+            Gaiden Shop Sorteos
           </h1>
           <p className="text-xl sm:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg font-medium">
             Participa en sorteos emocionantes y gana premios increíbles. Tu próximo sueño está a un boleto de distancia.
@@ -835,7 +835,7 @@ const Home = () => {
             ¿Listo para cambiar tu vida?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Únete a miles de ganadores que ya confiaron en WishWay
+            Únete a miles de ganadores que ya confiaron en Gaiden Shop
           </p>
           {!user && (
             <Link to="/register">

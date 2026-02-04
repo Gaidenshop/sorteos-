@@ -90,7 +90,7 @@ const RegistroVendedor = () => {
               Conviértete en Vendedor
             </CardTitle>
             <p className="text-center text-purple-200 mt-2">
-              Gana comisiones vendiendo sorteos de WishWay
+              Gana comisiones vendiendo sorteos de Gaiden Shop
             </p>
           </CardHeader>
           

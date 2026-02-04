@@ -116,7 +116,7 @@ const Register = () => {
       <Card className="w-full max-w-md sorteo-card" data-testid="register-card">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">Crear Cuenta</CardTitle>
-          <CardDescription>Únese a WishWay y comience a participar</CardDescription>
+          <CardDescription>Únese a Gaiden Shop y comience a participar</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleRegister} className="space-y-4">

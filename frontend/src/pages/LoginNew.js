@@ -139,7 +139,7 @@ const Login = () => {
         <div className="text-center mb-8">
           <img 
             src={LOGO_URL} 
-            alt="WishWay Logo" 
+            alt="Gaiden Shop Logo" 
             className="h-24 md:h-28 mx-auto mb-6 object-contain"
           />
           <h1 className="text-3xl font-bold text-gray-900 mb-2">

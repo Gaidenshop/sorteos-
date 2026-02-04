@@ -83,7 +83,7 @@ const Login = () => {
       <Card className="w-full max-w-md sorteo-card" data-testid="login-card">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">Iniciar Sesión</CardTitle>
-          <CardDescription>Accede a tu cuenta de WishWay</CardDescription>
+          <CardDescription>Accede a tu cuenta de Gaiden Shop</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
