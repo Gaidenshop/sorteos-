@@ -98,18 +98,27 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* HERO SECTION - Banner Principal con imagen negro+dorado */}
-      <div 
-        className="relative h-[600px] flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `url(${HERO_IMAGE})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      {/* HERO SECTION - Portada Responsive con 3 imágenes diferentes */}
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Imagen de fondo responsive */}
+        <picture className="absolute inset-0 w-full h-full">
+          <source 
+            media="(min-width: 1024px)" 
+            srcSet={HERO_IMAGE_DESKTOP} 
+          />
+          <source 
+            media="(min-width: 640px)" 
+            srcSet={HERO_IMAGE_TABLET} 
+          />
+          <img 
+            src={HERO_IMAGE_MOBILE}
+            alt="Gaiden Shop Background" 
+            className="w-full h-full object-cover"
+          />
+        </picture>
+
         {/* Overlay para mejor legibilidad */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
         
         <div className="relative z-10 max-w-6xl mx-auto text-center px-4">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
