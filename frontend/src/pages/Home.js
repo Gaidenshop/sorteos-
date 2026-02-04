@@ -18,7 +18,7 @@ const API = `${BACKEND_URL}/api`;
 const HERO_IMAGE_DESKTOP = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/a41a2ikz_image.png';
 const HERO_IMAGE_TABLET = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/h7hlch8r_image.png';
 const HERO_IMAGE_MOBILE = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/cvatfvyv_image.png';
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/xvzfhu73_image.png';
+const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/hvo8pn6v_image.png';
 
 const HomeComplete = () => {
   const { user } = useAuth();
