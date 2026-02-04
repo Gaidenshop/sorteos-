@@ -773,7 +773,7 @@ const HomeComplete = () => {
             ¿Listo para cambiar tu vida?
           </h2>
           <p className="text-xl text-gray-200 mb-8">
-            Únete a miles de ganadores que ya confiaron en WishWay
+            Únete a miles de ganadores que ya confiaron en Gaiden Shop
           </p>
           {!user && (
             <Link to="/register">
