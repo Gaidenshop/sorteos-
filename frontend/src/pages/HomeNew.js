@@ -12,8 +12,10 @@ import { Trophy, Calendar, DollarSign, TrendingUp, Clock, Star, Sparkles } from 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-// URL de la imagen del hero (negro+dorado)
-const HERO_IMAGE = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/b5g73ddt_image.png';
+// URLs de imágenes - Gaiden Shop
+const HERO_IMAGE_DESKTOP = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/a41a2ikz_image.png';
+const HERO_IMAGE_TABLET = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/h7hlch8r_image.png';
+const HERO_IMAGE_MOBILE = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/cvatfvyv_image.png';
 
 const Home = () => {
   const { user } = useAuth();
