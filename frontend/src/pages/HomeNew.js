@@ -122,11 +122,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80"></div>
         
         <div className="relative z-10 max-w-6xl mx-auto text-center px-4">
-          {/* Logo más grande */}
+          {/* Logo DOBLE DE GRANDE - Solo en portada */}
           <img 
             src={LOGO_URL} 
             alt="Gaiden Shop Logo" 
-            className="h-40 md:h-52 lg:h-64 mx-auto mb-10 drop-shadow-2xl object-contain"
+            className="h-80 md:h-104 lg:h-128 mx-auto mb-10 drop-shadow-2xl object-contain"
           />
           
           {/* Texto principal hero - SIN título */}
