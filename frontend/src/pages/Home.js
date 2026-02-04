@@ -713,65 +713,67 @@ const HomeComplete = () => {
         </div>
       )}
 
-      {/* Sección Conviértete en Vendedor */}
-      <div className="bg-gradient-to-r from-green-900 to-emerald-900 py-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-              💰 ¿Quieres Ganar Dinero Extra?
-            </h2>
-            <p className="text-xl text-gray-200 mb-2">
-              Conviértete en vendedor y gana comisiones por cada sorteo que vendas
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-3">🔗</div>
-                <h3 className="text-white font-bold text-lg mb-2">Link Único</h3>
-                <p className="text-gray-200 text-sm">
-                  Comparte tu link personalizado y empieza a ganar
-                </p>
-              </CardContent>
-            </Card>
+      {/* Sección Conviértete en Vendedor - OCULTA (cambiar MOSTRAR_SECCION_VENDEDOR a true para mostrar) */}
+      {MOSTRAR_SECCION_VENDEDOR && (
+        <div className="bg-gradient-to-r from-green-900 to-emerald-900 py-20 px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                💰 ¿Quieres Ganar Dinero Extra?
+              </h2>
+              <p className="text-xl text-gray-200 mb-2">
+                Conviértete en vendedor y gana comisiones por cada sorteo que vendas
+              </p>
+            </div>
             
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-3">💵</div>
-                <h3 className="text-white font-bold text-lg mb-2">Comisiones Instantáneas</h3>
-                <p className="text-gray-200 text-sm">
-                  Gana por cada venta realizada a través de tu link
-                </p>
-              </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-3">🔗</div>
+                  <h3 className="text-white font-bold text-lg mb-2">Link Único</h3>
+                  <p className="text-gray-200 text-sm">
+                    Comparte tu link personalizado y empieza a ganar
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-3">💵</div>
+                  <h3 className="text-white font-bold text-lg mb-2">Comisiones Instantáneas</h3>
+                  <p className="text-gray-200 text-sm">
+                    Gana por cada venta realizada a través de tu link
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-white/10 backdrop-blur-lg border-white/20">
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-3">🏦</div>
+                  <h3 className="text-white font-bold text-lg mb-2">Retiros Fáciles</h3>
+                  <p className="text-gray-200 text-sm">
+                    Solicita retiros cuando quieras a tu cuenta bancaria
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
             
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-3">🏦</div>
-                <h3 className="text-white font-bold text-lg mb-2">Retiros Fáciles</h3>
-                <p className="text-gray-200 text-sm">
-                  Solicita retiros cuando quieras a tu cuenta bancaria
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="text-center">
-            <Link to="/registro-vendedor">
-              <Button 
-                size="lg"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xl px-12 py-6 rounded-full shadow-2xl"
-              >
-                🚀 Quiero Ser Vendedor
-              </Button>
-            </Link>
-            <p className="text-gray-300 text-sm mt-4">
-              Sin costos de inscripción • Sin límite de ganancias • Retiros automáticos
-            </p>
+            <div className="text-center">
+              <Link to="/registro-vendedor">
+                <Button 
+                  size="lg"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xl px-12 py-6 rounded-full shadow-2xl"
+                >
+                  🚀 Quiero Ser Vendedor
+                </Button>
+              </Link>
+              <p className="text-gray-300 text-sm mt-4">
+                Sin costos de inscripción • Sin límite de ganancias • Retiros automáticos
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Footer CTA */}
       <div className="bg-gradient-to-r from-purple-900 to-blue-900 py-16 px-4">
