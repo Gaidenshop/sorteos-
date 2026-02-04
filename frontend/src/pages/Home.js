@@ -14,9 +14,11 @@ import websocketService from '../services/websocket';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-// URLs de imágenes
-const HERO_IMAGE = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/b5g73ddt_image.png';
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/13c8161p_descarga.png';
+// URLs de imágenes - Gaiden Shop
+const HERO_IMAGE_DESKTOP = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/a41a2ikz_image.png';
+const HERO_IMAGE_TABLET = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/h7hlch8r_image.png';
+const HERO_IMAGE_MOBILE = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/cvatfvyv_image.png';
+const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/xvzfhu73_image.png';
 
 const HomeComplete = () => {
   const { user } = useAuth();
