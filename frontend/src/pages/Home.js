@@ -216,17 +216,21 @@ const HomeComplete = () => {
 
         {/* Contenido principal */}
         <div className="relative z-10 text-center px-4 py-20">
+          {/* Logo más grande */}
           <img 
             src={LOGO_URL} 
             alt="Gaiden Shop Logo" 
-            className="h-32 md:h-40 lg:h-48 mx-auto mb-8 drop-shadow-2xl object-contain"
+            className="h-40 md:h-52 lg:h-64 mx-auto mb-10 drop-shadow-2xl object-contain"
           />
           
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-            Gaiden Shop Sorteos
-          </h1>
-          <p className="text-xl sm:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg font-medium">
-            Participa en sorteos emocionantes y gana premios increíbles. Tu próximo sueño está a un boleto de distancia.
+          {/* Texto principal hero - SIN título */}
+          <p className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6 max-w-4xl mx-auto drop-shadow-lg font-bold leading-tight">
+            Aquí la suerte sí paga. Participa hoy y gana premios reales
+          </p>
+          
+          {/* Subtítulo */}
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto drop-shadow-md font-medium">
+            • Sorteos verificados • Premios increíbles • Ganadores reales
           </p>
           
           {user ? (
