@@ -8,7 +8,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
 import { Loader2, Eye, EyeOff, Lock, Mail } from 'lucide-react';
 
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/13c8161p_descarga.png';
+const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/xvzfhu73_image.png';
 
 const Login = () => {
   const navigate = useNavigate();

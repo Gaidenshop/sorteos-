@@ -13,7 +13,7 @@ const API = `${BACKEND_URL}/api`;
 
 // URLs de imágenes
 const HERO_IMAGE = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/b5g73ddt_image.png';
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/13c8161p_descarga.png';
+const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/xvzfhu73_image.png';
 
 const HomeComplete = () => {
   const { user } = useAuth();

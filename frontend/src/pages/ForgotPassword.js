@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { Loader2, Mail, ArrowLeft, CheckCircle } from 'lucide-react';
 import axios from 'axios';
 
-const LOGO_URL = 'https://customer-assets.emergentagent.com/job_rafflehub-1/artifacts/13c8161p_descarga.png';
+const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/xvzfhu73_image.png';
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const ForgotPassword = () => {
