@@ -20,6 +20,9 @@ const HERO_IMAGE_TABLET = 'https://customer-assets.emergentagent.com/job_view-ap
 const HERO_IMAGE_MOBILE = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/cvatfvyv_image.png';
 const LOGO_URL = 'https://customer-assets.emergentagent.com/job_view-app-5/artifacts/hvo8pn6v_image.png';
 
+// FLAG DE CONFIGURACIÓN - Cambiar a true para mostrar la sección de vendedor
+const MOSTRAR_SECCION_VENDEDOR = false;
+
 const HomeComplete = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
